@@ -522,14 +522,12 @@ p:last-child { margin-bottom: 0; }
 
 .trust-logos img {
   height: 28px;
-  opacity: 0.35;
-  filter: grayscale(1) brightness(2.5);
-  transition: all var(--transition-base);
+  opacity: 0.45;
+  transition: opacity var(--transition-base);
 }
 
 .trust-logos img:hover {
-  opacity: 0.8;
-  filter: grayscale(0.3) brightness(1.5);
+  opacity: 0.9;
 }
 
 /* ---------- Stats ---------- */
@@ -968,8 +966,10 @@ textarea.form-control {
   .partner-hero-logo { width: 140px; height: 140px; }
 }
 
+@media (max-width: 768px) {
+  .trust-bar { display: none; }
+}
+
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
-  .trust-logos { gap: 1.5rem; }
-  .trust-logos img { height: 22px; }
 }

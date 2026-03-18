@@ -8,14 +8,31 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--bg-base);
+  background:
+    radial-gradient(ellipse 80% 70% at 20% 55%, rgba(10, 28, 140, 0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 15% 50%, rgba(5, 15, 90, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 60% 40%, rgba(1, 10, 50, 0.25) 0%, transparent 70%),
+    var(--bg-base);
   overflow: hidden;
   padding-top: var(--nav-height);
 }
 
+/* Subtle dot grid texture */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(80, 130, 255, 0.28) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 35% 50%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 90% 85% at 35% 50%, black 20%, transparent 75%);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .home-hero-inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -60,37 +77,6 @@
 }
 
 
-/* Hero background grid */
-.hero-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(1, 94, 249, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(1, 94, 249, 0.02) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 50%, black 20%, transparent 70%);
-  mask-image: radial-gradient(ellipse 80% 70% at 30% 50%, black 20%, transparent 70%);
-  z-index: 0;
-}
-
-/* Hero arc glow */
-.hero-arc {
-  position: absolute;
-  bottom: -220px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: 440px;
-  border-radius: 50%;
-  border: 1.5px solid transparent;
-  border-top-color: var(--magenta);
-  filter: blur(0.5px);
-  box-shadow:
-    0 -6px 24px var(--magenta-glow),
-    0 -2px 80px rgba(192, 38, 211, 0.08);
-  z-index: 1;
-  animation: neon-pulse 6s ease-in-out infinite;
-}
 
 /* ---------- Services Section (Editorial List) ---------- */
 .services-section {
