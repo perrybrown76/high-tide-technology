@@ -1,0 +1,389 @@
+/* ============================================================
+   HIGH TIDE TECHNOLOGY — Page-Specific Styles
+   ============================================================ */
+
+/* ---------- Homepage Hero ---------- */
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--bg-base);
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Hero left column */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-left .label-tag {
+  margin-bottom: 1.75rem;
+}
+
+.hero-left h1 {
+  font-size: clamp(3rem, 6.5vw, 5.25rem);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+/* Hero background grid */
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(1, 94, 249, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(1, 94, 249, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 50%, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 80% 70% at 30% 50%, black 20%, transparent 70%);
+  z-index: 0;
+}
+
+/* Hero arc glow */
+.hero-arc {
+  position: absolute;
+  bottom: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 440px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: var(--magenta);
+  filter: blur(0.5px);
+  box-shadow:
+    0 -6px 24px var(--magenta-glow),
+    0 -2px 80px rgba(192, 38, 211, 0.08);
+  z-index: 1;
+  animation: neon-pulse 6s ease-in-out infinite;
+}
+
+/* ---------- Services Section (Editorial List) ---------- */
+.services-section {
+  background: var(--bg-surface);
+}
+
+.services-header {
+  margin-bottom: 3.5rem;
+}
+
+.services-header h2 {
+  margin-top: 0.5rem;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: start;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+}
+
+.service-row:hover {
+  background: rgba(1, 94, 249, 0.03);
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.service-row:hover .service-num {
+  color: var(--accent);
+}
+
+.service-row:hover .service-arrow {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+.service-num {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding-top: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.service-body h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.service-body p {
+  font-size: 0.925rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.service-arrow {
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  padding-top: 0.2rem;
+  transition: color var(--transition-fast), transform var(--transition-base);
+  align-self: center;
+}
+
+/* ---------- Why Section ---------- */
+.why-section {
+  position: relative;
+  background: var(--bg-base);
+}
+
+.why-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Contact Page ---------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-info h2 { margin-bottom: 2rem; }
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.contact-detail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: var(--accent-subtle);
+  border: 1px solid rgba(1, 94, 249, 0.15);
+  border-radius: var(--radius-md);
+  color: var(--accent);
+}
+
+.contact-detail-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-detail h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.contact-detail p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.contact-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+}
+
+.contact-form-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+
+  .hero-panel {
+    display: none;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(2.75rem, 8vw, 4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr; }
+
+  .home-hero-inner {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-left h1 { font-size: clamp(2.25rem, 9vw, 3rem); }
+  .hero-left p { font-size: 1rem; }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn { width: 100%; }
+
+  .service-row {
+    grid-template-columns: 48px 1fr auto;
+    gap: 1rem;
+  }
+
+  .service-row:hover {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ---------- Cyber Security Page ---------- */
+.cyber-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cyber-features { grid-template-columns: 1fr; }
+}
+
+/* ---------- Development Steps ---------- */
+.dev-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dev-step-number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-subtle);
+  border: 1px solid rgba(1, 94, 249, 0.2);
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- NAIC Principles ---------- */
+.principles-list {
+  counter-reset: principle;
+}
+
+.principle-item {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.5rem 4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1rem;
+  transition: border-color var(--transition-base);
+}
+
+.principle-item:hover {
+  border-color: rgba(1, 94, 249, 0.2);
+}
+
+.principle-item::before {
+  counter-increment: principle;
+  content: counter(principle);
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ---------- Training Grid ---------- */
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .training-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- About Values ---------- */
+.about-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .about-values { grid-template-columns: 1fr; }
+}
+
+/* ---------- Telecom Services ---------- */
+.telecom-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .telecom-services { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .telecom-services { grid-template-columns: 1fr; }
+}
