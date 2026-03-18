@@ -233,7 +233,8 @@
     padding: 4rem 2rem;
   }
 
-  .hero-panel {
+  .hero-panel,
+  #logo3d-wrapper {
     display: none;
   }
 
