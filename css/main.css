@@ -480,7 +480,58 @@ p:last-child { margin-bottom: 0; }
 
 
 .page-hero h1 { margin-bottom: 1rem; }
-.page-hero p { font-size: 1.1rem; max-width: 640px; }
+.page-hero p { font-size: 1.2rem; max-width: 640px; color: var(--text-primary); line-height: 1.7; }
+
+/* Services Hero — Cyan variation */
+.page-hero.service-hero {
+  background:
+    radial-gradient(ellipse 80% 70% at 20% 55%, rgba(0, 130, 160, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 50%, rgba(0, 75, 100, 0.25) 0%, transparent 50%),
+    var(--bg-base);
+}
+
+.page-hero.service-hero::before {
+  inset: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  background-image: radial-gradient(circle, rgba(0, 212, 255, 0.18) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 85% at 25% 50%, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 85% at 25% 50%, black 20%, transparent 70%);
+  z-index: 0;
+}
+
+/* Partnerships Hero — Magenta variation */
+.page-hero.partner-hero {
+  background:
+    radial-gradient(ellipse 80% 70% at 20% 55%, rgba(110, 0, 130, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 15% 50%, rgba(65, 0, 85, 0.25) 0%, transparent 50%),
+    var(--bg-base);
+}
+
+.page-hero.partner-hero::before {
+  inset: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  background-image: radial-gradient(circle, rgba(192, 38, 211, 0.16) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 85% at 25% 50%, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 85% at 25% 50%, black 20%, transparent 70%);
+  z-index: 0;
+}
+
+/* Partner logo card — stand out against hero */
+.page-hero.partner-hero .partner-hero-logo {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-light);
+  box-shadow: 0 0 40px rgba(192, 38, 211, 0.12), 0 4px 24px rgba(0,0,0,0.4);
+  width: 220px;
+  height: 220px;
+}
 
 /* Glow Orbs */
 .glow-orb {
@@ -824,6 +875,147 @@ textarea.form-control {
   color: var(--text-secondary);
   margin-bottom: 0.4rem;
   line-height: 1.65;
+}
+
+/* ---------- About Page ---------- */
+.about-hero-content {
+  max-width: 700px;
+}
+
+.page-hero.service-hero.about-hero {
+  padding-bottom: 2.5rem;
+}
+
+.about-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.about-story-grid,
+.about-team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-story.section,
+.about-team-section.section,
+.about-values-section.section {
+  padding: 3.5rem 0;
+}
+
+.about-story-text h2,
+.about-team-text h2 {
+  margin: 1rem 0;
+}
+
+.about-story-text p,
+.about-team-text p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.about-story-image img,
+.about-team-image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.about-capabilities {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.about-capabilities li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.about-capabilities li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.about-value-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.about-value-blue::before  { background: var(--accent); }
+.about-value-cyan::before  { background: var(--cyan); }
+.about-value-magenta::before { background: var(--magenta); }
+
+.about-value-top {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.about-value-blue .about-value-top  { color: var(--accent);   background: rgba(1, 94, 249, 0.1);   border: 1px solid rgba(1, 94, 249, 0.2); }
+.about-value-cyan .about-value-top  { color: var(--cyan);    background: rgba(0, 212, 255, 0.08);  border: 1px solid rgba(0, 212, 255, 0.18); }
+.about-value-magenta .about-value-top { color: var(--magenta); background: rgba(192, 38, 211, 0.08); border: 1px solid rgba(192, 38, 211, 0.18); }
+
+.about-value-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-value-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .about-story-grid,
+  .about-team-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-team-image { order: -1; }
+  .about-values-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .about-values-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Partnership Layout ---------- */
