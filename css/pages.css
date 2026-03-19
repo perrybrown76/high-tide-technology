@@ -360,6 +360,102 @@
   .about-values { grid-template-columns: 1fr; }
 }
 
+/* ---------- Services Hub Grid ---------- */
+.services-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.services-hub-grid .card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.services-hub-grid .card-link {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .services-hub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .services-hub-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Partnerships Hub Grid ---------- */
+.partners-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.partner-hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+}
+
+.partner-hub-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(192, 38, 211, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(192, 38, 211, 0.08);
+  color: inherit;
+}
+
+.partner-hub-logo {
+  height: 40px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
+  margin-bottom: 1.25rem;
+}
+
+.partner-hub-card:hover .partner-hub-logo {
+  opacity: 0.9;
+}
+
+.partner-hub-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.partner-hub-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .partners-hub-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .partners-hub-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .partners-hub-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Telecom Services ---------- */
 .telecom-services {
   display: grid;
