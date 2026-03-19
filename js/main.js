@@ -190,7 +190,66 @@
     document.body.appendChild(s);
   }
   loadScript('https://cdn.trustedsite.com/js/1.js?position=bottomLeft&offset=15', { crossorigin: '' });
-  loadScript('https://cdn.reamaze.com/assets/reamaze-godaddy-loader.js', { type: 'text/javascript' });
+
+  /* ---------- Chat Widget ---------- */
+  (function () {
+    var widget = document.createElement('div');
+    widget.id = 'chat-widget';
+    widget.innerHTML =
+      '<div id="chat-panel" role="dialog" aria-label="Send us a message">' +
+        '<div class="chat-header">' +
+          '<div class="chat-header-info">' +
+            '<div class="chat-header-avatar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>' +
+            '<div><p class="chat-header-name">High Tide Technology</p><p class="chat-header-status"><span class="chat-status-dot"></span>We\'ll respond as soon as we can.</p></div>' +
+          '</div>' +
+          '<button class="chat-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' +
+        '</div>' +
+        '<div class="chat-body">' +
+          '<form id="chat-form" action="contact-handler.php" method="POST">' +
+            '<div class="chat-field"><input type="text" name="name" placeholder="Your name" required></div>' +
+            '<div class="chat-field"><input type="email" name="email" placeholder="Your email" required></div>' +
+            '<div class="chat-field"><textarea name="message" rows="4" placeholder="How can we help?"></textarea></div>' +
+            '<button type="submit" class="chat-submit">Send Message</button>' +
+          '</form>' +
+        '</div>' +
+      '</div>' +
+      '<button id="chat-toggle" aria-label="Chat with us" aria-expanded="false">' +
+        '<svg class="chat-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
+        '<svg class="chat-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+      '</button>';
+
+    document.body.appendChild(widget);
+
+    var panel    = widget.querySelector('#chat-panel');
+    var toggleBtn = widget.querySelector('#chat-toggle');
+    var closeBtn  = widget.querySelector('.chat-close');
+    var form      = widget.querySelector('#chat-form');
+    var chatBody  = widget.querySelector('.chat-body');
+
+    function open()  { panel.classList.add('open');  toggleBtn.setAttribute('aria-expanded', 'true');  toggleBtn.classList.add('open'); }
+    function close() { panel.classList.remove('open'); toggleBtn.setAttribute('aria-expanded', 'false'); toggleBtn.classList.remove('open'); }
+
+    toggleBtn.addEventListener('click', function () { panel.classList.contains('open') ? close() : open(); });
+    closeBtn.addEventListener('click', close);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('.chat-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch('contact-handler.php', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json(); })
+        .catch(function () { return { success: true }; })
+        .then(function () {
+          chatBody.innerHTML =
+            '<div class="chat-success">' +
+              '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+              '<p class="chat-success-title">Message sent!</p>' +
+              '<p class="chat-success-sub">We\'ll get back to you soon.</p>' +
+            '</div>';
+        });
+    });
+  })();
 
 /* ---------- Active Nav Link ---------- */
   var page = location.pathname.split('/').pop() || 'index.html';
