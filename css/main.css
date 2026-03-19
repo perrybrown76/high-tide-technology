@@ -88,7 +88,22 @@ a {
   text-decoration: none;
   transition: color var(--transition-fast);
 }
-a:hover { color: var(--accent); }
+a:hover { color: var(--accent); text-decoration: underline; }
+
+/* No underline on UI elements */
+.btn:hover,
+.nav-logo:hover,
+.nav-links a:hover,
+.service-card:hover,
+.partner-hub-card:hover,
+.service-row:hover,
+.card:hover,
+.footer-social a:hover { text-decoration: none; }
+
+/* Underline heading inside card-type links */
+.service-card:hover h3,
+.partner-hub-card:hover h3,
+.card:hover h3 { text-decoration: underline; }
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4, h5, h6 {
@@ -216,13 +231,18 @@ p:last-child { margin-bottom: 0; }
   color: var(--text-secondary);
   text-decoration: none;
   border-radius: var(--radius-sm);
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition: color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.nav-links > li > a:hover,
-.nav-links > li > a.active {
+.nav-links > li > a:hover {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-links > li:not(.nav-cta) > a.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 16px var(--accent-glow);
 }
 
 /* Nav Dropdown */
@@ -291,6 +311,15 @@ p:last-child { margin-bottom: 0; }
 
 .nav-cta .btn:hover {
   color: #fff;
+}
+
+.nav-cta .btn-primary {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-cta .btn-primary.active,
+.nav-cta .btn-primary:hover {
+  box-shadow: 0 0 20px var(--accent-glow), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Hamburger */
