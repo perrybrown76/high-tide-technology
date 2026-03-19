@@ -10,8 +10,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
 }
 
 @keyframes float-up {
@@ -20,8 +20,8 @@
 }
 
 @keyframes neon-pulse {
-  0%, 100% { opacity: 0.5; filter: blur(1px); }
-  50% { opacity: 1; filter: blur(0.5px); }
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 /* ---------- Custom Properties ---------- */
@@ -487,6 +487,8 @@ p:last-child { margin-bottom: 0; }
   filter: blur(120px);
   pointer-events: none;
   z-index: 0;
+  will-change: opacity;
+  transform: translateZ(0);
   animation: pulse-glow 8s ease-in-out infinite;
 }
 
@@ -516,9 +518,27 @@ p:last-child { margin-bottom: 0; }
 .trust-carousel {
   position: relative;
   overflow: hidden;
-  /* Fade masks on left and right edges */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.trust-carousel::before,
+.trust-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.trust-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(11, 15, 26, 1) 0%, transparent 100%);
+}
+
+.trust-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(11, 15, 26, 1) 0%, transparent 100%);
 }
 
 .trust-track {
@@ -526,6 +546,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   gap: 4rem;
   width: max-content;
+  will-change: transform;
   animation: trust-scroll 52s linear infinite;
 }
 
