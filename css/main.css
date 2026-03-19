@@ -718,6 +718,7 @@ p:last-child { margin-bottom: 0; }
   animation: neon-pulse 4s ease-in-out infinite;
 }
 
+
 .cta-strip h2 { margin-bottom: 1rem; }
 .cta-strip p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 560px; margin-left: auto; margin-right: auto; }
 

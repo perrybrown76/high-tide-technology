@@ -54,6 +54,7 @@
 .hero-right {
   align-self: start;
   margin-top: -3rem;
+  margin-bottom: -6rem;
 }
 
 .hero-left .label-tag {
@@ -126,7 +127,13 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--border-light);
+  background: linear-gradient(90deg, transparent, var(--accent), var(--magenta), transparent);
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 .service-card:hover {

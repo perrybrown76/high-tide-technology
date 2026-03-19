@@ -192,7 +192,7 @@
   loadScript('https://cdn.trustedsite.com/js/1.js?position=bottomLeft&offset=15', { crossorigin: '' });
   loadScript('https://cdn.reamaze.com/assets/reamaze-godaddy-loader.js', { type: 'text/javascript' });
 
-  /* ---------- Active Nav Link ---------- */
+/* ---------- Active Nav Link ---------- */
   var page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links > li > a').forEach(function (a) {
     if (a.getAttribute('href') === page) a.classList.add('active');
