@@ -114,8 +114,10 @@ p:last-child { margin-bottom: 0; }
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--cyan);
-  background: rgba(0, 212, 255, 0.06);
-  border: 1px solid rgba(0, 212, 255, 0.15);
+  background: rgba(4, 12, 30, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: var(--radius-full);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -361,7 +363,9 @@ p:last-child { margin-bottom: 0; }
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--text-primary);
   border: 1px solid var(--border-light);
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -602,14 +606,13 @@ p:last-child { margin-bottom: 0; }
 .trust-track {
   display: flex;
   align-items: center;
-  gap: 4rem;
   width: max-content;
   will-change: transform;
-  animation: trust-scroll 52s linear infinite;
 }
 
-.trust-carousel:hover .trust-track {
-  animation-play-state: paused;
+.trust-track a {
+  padding-right: 4rem;
+  flex-shrink: 0;
 }
 
 .trust-track img {
@@ -621,17 +624,6 @@ p:last-child { margin-bottom: 0; }
 
 .trust-track img:hover {
   opacity: 0.9;
-}
-
-@keyframes trust-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .trust-track {
-    animation: none;
-  }
 }
 
 /* ---------- Stats ---------- */

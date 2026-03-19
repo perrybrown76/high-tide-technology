@@ -137,6 +137,50 @@
     if (el) { el.className = 'form-status ' + type; el.textContent = msg; }
   }
 
+  /* ---------- Trust Logo Carousel ---------- */
+  (function () {
+    var carousel = document.querySelector('.trust-carousel');
+    var track    = document.querySelector('.trust-track');
+    if (!carousel || !track) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var halfWidth = 0;
+    var x         = 0;
+    var lastTs    = null;
+    var paused    = false;
+    var DURATION  = 52000; // ms to scroll one full half-width
+
+    function measure() {
+      var items = track.querySelectorAll('a');
+      var half  = Math.floor(items.length / 2);
+      var w = 0;
+      for (var i = 0; i < half; i++) w += items[i].getBoundingClientRect().width;
+      return w;
+    }
+
+    function tick(ts) {
+      if (lastTs !== null && !paused && halfWidth > 0) {
+        x -= (halfWidth / DURATION) * (ts - lastTs);
+        if (x <= -halfWidth) x += halfWidth;
+        track.style.transform = 'translateX(' + x + 'px)';
+      }
+      lastTs = ts;
+      requestAnimationFrame(tick);
+    }
+
+    carousel.addEventListener('mouseenter', function () { paused = true; });
+    carousel.addEventListener('mouseleave', function () { paused = false; });
+
+    function start() {
+      halfWidth = measure();
+      requestAnimationFrame(tick);
+    }
+
+    if (document.readyState === 'complete') { start(); }
+    else { window.addEventListener('load', start); }
+  })();
+
   /* ---------- Third-party Widgets ---------- */
   function loadScript(src, attrs) {
     var s = document.createElement('script');
