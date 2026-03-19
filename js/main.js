@@ -137,6 +137,17 @@
     if (el) { el.className = 'form-status ' + type; el.textContent = msg; }
   }
 
+  /* ---------- Third-party Widgets ---------- */
+  function loadScript(src, attrs) {
+    var s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    if (attrs) Object.keys(attrs).forEach(function(k) { s.setAttribute(k, attrs[k]); });
+    document.body.appendChild(s);
+  }
+  loadScript('https://cdn.trustedsite.com/js/1.js?position=bottomLeft&offset=15', { crossorigin: '' });
+  loadScript('https://cdn.reamaze.com/assets/reamaze-godaddy-loader.js', { type: 'text/javascript' });
+
   /* ---------- Active Nav Link ---------- */
   var page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links > li > a').forEach(function (a) {
