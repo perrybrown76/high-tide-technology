@@ -48,6 +48,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-self: start;
+}
+
+.hero-right {
+  align-self: start;
+  margin-top: -3rem;
 }
 
 .hero-left .label-tag {
