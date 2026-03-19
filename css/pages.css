@@ -7,7 +7,7 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background:
     radial-gradient(ellipse 80% 70% at 20% 55%, rgba(10, 28, 140, 0.55) 0%, transparent 65%),
     radial-gradient(ellipse 50% 50% at 15% 50%, rgba(5, 15, 90, 0.4) 0%, transparent 55%),
@@ -36,7 +36,7 @@
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 4rem 2rem;
   display: grid;
   grid-template-columns: 1fr 600px;
   gap: 6rem;
