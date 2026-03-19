@@ -1035,6 +1035,14 @@ textarea.form-control {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
+  transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+a.partner-hero-logo:hover {
+  background: #1e2a45;
+  border-color: rgba(1, 94, 249, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(1, 94, 249, 0.08);
 }
 
 .partner-hero-logo img {
