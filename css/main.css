@@ -1161,6 +1161,10 @@ textarea.form-control {
   line-height: 1.65;
 }
 
+.page-content ul li::marker {
+  color: var(--cyan);
+}
+
 /* ---------- About Page ---------- */
 .about-hero-content {
   max-width: 700px;
