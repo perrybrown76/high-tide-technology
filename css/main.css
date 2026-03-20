@@ -1347,7 +1347,7 @@ a.partner-hero-logo:hover {
 
 .partner-feature {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   padding: 1.25rem;
   background: var(--bg-card);
