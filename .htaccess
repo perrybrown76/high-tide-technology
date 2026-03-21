@@ -1,10 +1,19 @@
 # High Tide Technology — .htaccess
 # Security headers, HTTPS redirect, URL rewrites
 
+# Block direct web access to PHP includes
+<DirectoryMatch "includes">
+    Require all denied
+</DirectoryMatch>
+
 # Force HTTPS
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Serve .html URLs transparently from .php files (keeps all links/bookmarks working)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)\.html$ $1.php [L,NC]
 
 # Security headers
 Header always set X-Content-Type-Options "nosniff"
