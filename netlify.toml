@@ -1,9 +1,6 @@
 [build]
   publish = "."
 
-[build.processing.html]
-  pretty_urls = true
-
 # Old .php URLs → clean slugs (for any external backlinks)
 [[redirects]]
   from = "/*.php"
