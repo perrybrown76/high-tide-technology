@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Old .php URLs → clean slugs (for any external backlinks)
+[[redirects]]
+  from = "/*.php"
+  to = "/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/when%2C-not-if"
+  to = "/when-not-if"
+  status = 301
+
+# Custom 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options       = "nosniff"
+    X-Frame-Options              = "SAMEORIGIN"
+    X-XSS-Protection             = "0"
+    Referrer-Policy              = "strict-origin-when-cross-origin"
+    Permissions-Policy           = "accelerometer=(), autoplay=(), bluetooth=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()"
+    Strict-Transport-Security    = "max-age=63072000; includeSubDomains; preload"
+    Cross-Origin-Opener-Policy   = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    Content-Security-Policy      = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
