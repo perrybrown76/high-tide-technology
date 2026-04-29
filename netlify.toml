@@ -1,6 +1,9 @@
 [build]
   publish = "."
 
+[build.processing]
+  skip_processing = true
+
 # Old .php URLs → clean slugs (for any external backlinks)
 [[redirects]]
   from = "/*.php"
